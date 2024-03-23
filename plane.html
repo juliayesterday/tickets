@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tickets</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/body-scroll-lock/lib/bodyScrollLock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div id="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+    <header class="header">
+        <div class="container header-container">
+            <img src="./img/3f1b4eca-fa7b-44d8-9e82-68af30ee884d_LE_auto_x2.jpg" width="150" alt="лого"/>
+            <nav class="nav">
+                
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="./index.html" class="nav-item-link translate" data-translation-key="bus">Автобуси</a></li>
+                    <li class="nav-item"><a href="./train.html" class="nav-item-link translate" data-translation-key="train">Залізничні квитки</a></li>
+                    <li class="nav-item"><a href="./plane.html" class="nav-item-link item-active translate" data-translation-key="plane">Авіаквитки</a></li>
+                    <li class="nav-item"><a href="https://www.booking.com/index.ru.html?aid=2311236;label=ru-ua-booking-desktop-*21tAEzg4oX*lDWVhbW5sQS652897959755:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-15349264036:lp1012839:li:dec:dm;ws=&gad_source=1&gclid=CjwKCAjwte-vBhBFEiwAQSv_xa8Bovd-QnPT-ry0nwDFRwqE_mtQu4Sfpy3bfyF_kxzbBWa9GDEY2BoCZTkQAvD_BwE" class="nav-item-link translate" data-translation-key="hotels">Готелі</a></li>
+                    <li class="nav-item"><a href="https://hotline.finance/ua/insurance-all?gad_source=1&gclid=CjwKCAjwte-vBhBFEiwAQSv_xbOe1XHqRv82tQrM2CCSatwrfYzPD9WC5ZBredHCT_-MF0M7GQ-SbhoC7pYQAvD_BwE" class="nav-item-link translate" data-translation-key="insurance">Страхування</a></li>
+                </ul>
+               
+            </nav>
+            <div id="language-selector" class="header-button">
+                <label for="language" class="translate language-label">
+                    <img src="./svg/planet.svg" alt="Зірка" width="30">
+                </label>
+                <select id="language" class="language-select" onchange="changeLanguage()">
+                    <option value="ukr" class="translate language-option" data-translation-key="ukrainian"> <img src="./img/UA.png" width="45" alt="лого"/>UA</option>
+                    <option value="eng" class="translate language-option" data-translation-key="english">ENG</option>
+                    <option value="rus" class="translate language-option" data-translation-key="russian">RU</option>
+                </select>
+            </div>
+            <button class="header_open_btn js-open-menu" type="button">
+                 <img src="./svg/burger.svg" alt="Бургер" width="30">
+              </button>
+              <nav class="menu-container js-menu-container">
+                <button class="header_close_btn js-close-menu" type="button">
+                    <img src="./svg/close.svg" alt="Бургер" width="30">
+                <ul class="nav-list-menu">
+                    <li class="nav-item-menu"><a href="./index.html" class="nav-item-link nav-item-link-menu  translate" data-translation-key="bus">Автобуси</a></li>
+                    <li class="nav-item-menu"><a href="./train.html" class="nav-item-link nav-item-link-menu  translate" data-translation-key="train">Залізничні квитки</a></li>
+                    <li class="nav-item-menu"><a href="./plane.html" class="nav-item-link nav-item-link-menu item-active translate" data-translation-key="plane">Авіаквитки</a></li>
+                    <li class="nav-item"><a href="https://www.booking.com/index.ru.html?aid=2311236;label=ru-ua-booking-desktop-*21tAEzg4oX*lDWVhbW5sQS652897959755:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-15349264036:lp1012839:li:dec:dm;ws=&gad_source=1&gclid=CjwKCAjwte-vBhBFEiwAQSv_xa8Bovd-QnPT-ry0nwDFRwqE_mtQu4Sfpy3bfyF_kxzbBWa9GDEY2BoCZTkQAvD_BwE" class="nav-item-link translate" data-translation-key="hotels">Готелі</a></li>
+                    <li class="nav-item"><a href="https://hotline.finance/ua/insurance-all?gad_source=1&gclid=CjwKCAjwte-vBhBFEiwAQSv_xbOe1XHqRv82tQrM2CCSatwrfYzPD9WC5ZBredHCT_-MF0M7GQ-SbhoC7pYQAvD_BwE" class="nav-item-link translate" data-translation-key="insurance">Страхування</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero-plane translate" data-translation-key="searchSection">
+            <div class="container">
+                <div class="hero-group hero-group-train">
+                    <h1 class="hero-title translate" data-translation-key="searchTitle" data-ukr-url="https://booking.bussystem.eu/ua/?partner=3175" data-eng-url="https://booking.bussystem.eu/en/?partner=3175" data-rus-url="https://booking.bussystem.eu/ru/?partner=3175">Пошук дешевих квитків</h1>
+                
+                    <iframe id="bookingIframeUkr" class="booking-iframe" src="https://booking.bussystem.eu/ua/air" frameborder="0" marginwidth="0" marginheight="0" width="750px" height="600px"></iframe>
+                    <iframe id="bookingIframeEng" class="booking-iframe" src="https://booking.bussystem.eu/en/air" frameborder="0" marginwidth="0" marginheight="0" width="750px" height="600px"></iframe>
+                    <iframe id="bookingIframeRus" class="booking-iframe" src="https://booking.bussystem.eu/ru/air" frameborder="0" marginwidth="0" marginheight="0" width="750px" height="600px"></iframe>
+                </div>
+            </div>
+        </section>
+        <section class="about translate" data-translation-key="aboutSection">
+            <div class="container">
+                <ul class="about-list">
+                    <li class="about-item">
+                        <img src="./img/ticket.png" alt="Дешеві квитки" width="48"/>
+                        <h3 class="about-item-title translate" data-translation-key="savingWithoutCompromises">Економія без Компромісів</h3>
+                        <p class="about-item-text translate" data-translation-key="cheapTicketsForYourDreams">Дешеві Квитки для Вашої Мрії!</p>
+                    </li>
+                    <li class="about-item">
+                        <img src="./img/handrail.png" alt="Постійна підтримка" width="48"/>
+                        <h3 class="about-item-title translate" data-translation-key="supportAtHeight">Підтримка на Висоті</h3>
+                        <p class="about-item-text translate" data-translation-key="ourManagersAreAlwaysWithYou">Наші Менеджери завжди поруч з Вами!</p>
+                    </li>
+                    <li class="about-item">
+                        <img src="./img/advice.png" alt="Зручний сервіс" width="48"/>
+                        <h3 class="about-item-title translate" data-translation-key="convenienceAtEveryStage">Зручність на Кожному Етапі</h3>
+                        <p class="about-item-text translate" data-translation-key="newLevelOfServiceForYou">Новий Рівень Сервісу для Вас!</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="question">
+            <div class="container question-group">
+                <img src="./img/travel-concept-with-open-luggage-and-tickets-removebg-preview.png" alt="Мандрівка" width="500" class="question-img"/>
+                <div class="question-text-group">
+                    <h3 class="question-title translate" data-translation-key="popularQuestions">Популярні запитання</h3>
+                    <ul class="question-list">
+                        <li class="question-item">
+                            <div class="question-answer-text-group">
+                                <h3 class="question-item-link translate" data-translation-key="howToBookTicket">Як забронювати квиток онлайн?</h3>
+                                <p class="answer-text translate" data-translation-key="bookTicketInstructions">Щоб забронювати авіаквиток, виберіть: тип польоту (в одну сторону, в обидві сторони, мультисегментний); міста вильоту і прильоту; дату подорожі; кількість пасажирів; Натисніть кнопку «Знайти». Серед запропонованих рейсів виберіть відповідний варіант і натисніть кнопку «Вибрати». Далі вкажіть дані всіх пасажирів і перейдіть до оплати авіаквитка.</p>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="question-item-link-svg">
+                                <path d="M5 12L12 19L19 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </li>
+                        <li class="question-item">
+                            <div class="question-answer-text-group">
+                                <h3 class="question-item-link translate" data-translation-key="whereToViewReservation">Де переглянути своє бронювання?</h3>
+                                <p class="answer-text translate" data-translation-key="viewReservationInstructions">Білети будуть відправлені на електронну пошту, яку ви вказали під час бронювання. Завітайте на свою електронну пошту та перевірте папку "Вхідні" або "Спам", якщо ви не знайшли листа у головній скринці.</p>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="question-item-link-svg">
+                                <path d="M5 12L12 19L19 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </li>
+                        <li class="question-item">
+                            <div class="question-answer-text-group">
+                                <h3 class="question-item-link translate" data-translation-key="canReservationBeSavedWithoutPayment">Чи можна зберегти бронювання без оплати?</h3>
+                                <p class="answer-text translate" data-translation-key="reservationSaveWithoutPaymentInstructions">Для кожного окремого бронювання вказується строк для оплати, який може бути меншим за 12 годин. Якщо протягом цього часу ви не здійснили повну оплату, ваше бронювання буде скасовано.</p>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="question-item-link-svg">
+                                <path d="M5 12L12 19L19 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </li>
+                        <li class="question-item">
+                            <div class="question-answer-text-group">
+                                <h3 class="question-item-link translate" data-translation-key="travellingWithPets">Поїздки з тваринами</h3>
+                                <p class="answer-text translate" data-translation-key="travellingWithPetsInstructions">При плануванні поїздки з твариною, ми наполегливо рекомендуємо заздалегідь підготувати ветеринарний паспорт з відмітками про зроблені щеплення, довідку про стан здоров’я тварини, переносну сумку або клітку з глухим дном, а також забезпечити наявність чистої питної води.
+        
+        Перевізник має право регламентувати правила провезення тварин на автобусах своїх рейсів, тому необхідно уточнювати цю інформацію індивідуально.</p>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="question-item-link-svg">
+                                <path d="M5 12L12 19L19 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </li>
+                        <li class="question-item">
+                            <div class="question-answer-text-group">
+                                <h3 class="question-item-link translate" data-translation-key="luggageTransportation">Перевезення багажу</h3>
+                                <p class="answer-text translate" data-translation-key="luggageTransportationInstructions">Зверніть увагу, що перевізник має повне право відмовити пасажиру автобуса в провезенні ручної поклажі або багажу, якщо цей багаж перекриває прохід в транспорті іншим пасажирам, або не відповідає кількості та розмірами.
+        
+        Інформацію про умови провезення багажу на конкретних рейсах ви завжди можете уточнити у перевізника.</p>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="question-item-link-svg">
+                                <path d="M5 12L12 19L19 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="comment">
+            <div class="container">
+                <ul class="comment-list">
+                    <li class="comment-item">
+                        <img class="comment-item-img" src="./img/comment.jpg" width="150" alt="Ганна"/>
+                        <h3 class="comment-item-name translate" data-translation-key="mikhailKryuk">Михайло Крюк</h3>
+                        <p class="comment-item-text translate" data-translation-key="mikhailComment">
+                            Моя дружина та я вже декілька разів користувалися послугами цього сервісу для бронювання авіа-, автобусних та ж/д квитків. Нам завжди подобалося, наскільки швидко та легко можна знайти та придбати квитки через цей веб-сайт. Обслуговування клієнтів завжди дуже доброзичливе, а відправлення завжди вчасне.
+                        </p>
+                        <ul class="star-list">
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                        </ul>
+                    </li>
+                    <li class="comment-item">
+                        <img class="comment-item-img" src="./img/comment2 (1).jpg" width="150" alt="Ганна"/>
+                        <h3 class="comment-item-name translate" data-translation-key="viktoriaKotsiubailo">Вікторія Чуйко</h3>
+                        <p class="comment-item-text translate" data-translation-key="viktoriaComment">
+                            Недавно подорожувала разом із коханим, користуючись послугами цього сервісу. Хочу поділитися своїми враженнями - це була найкраща подорож! Зручне бронювання, чудовий вибір квитків та бездоганний сервіс. Всі наші перевезення були вчасними, а ніяких непорозумінь чи труднощів не виникло
+                        </p>
+                        <ul class="star-list">
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                        </ul>
+                    </li>
+                    <li class="comment-item">
+                        <img class="comment-item-img" src="./img/comment3.jpg" width="150" alt="Ганна"/>
+                        <h3 class="comment-item-name translate" data-translation-key="dmytroMainyi">Дмитро Майний</h3>
+                        <p class="comment-item-text translate" data-translation-key="dmytroComment">
+                            Я вже багато років вірний цьому сервісу. Купував квитки на різні види транспорту - від авіації до автобусів. Сервіс завжди на високому рівні. Останнім часом користувався авіабілетами, і кожен раз отримував їх на електронну пошту миттєво. Ніяких турбот та стресів, тільки приємні враження від подорожей!
+                        </p>
+                        <ul class="star-list">
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                            <li class="star-item"> <img src="./svg/star.svg" alt="Зірка" width="20"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+       
+    </main>
+    <footer class="footer">
+        <div class="container footer-container">
+       
+            <div class="telegram-grop">
+                <div class="telegram-grop-img">
+                    <h3 class="telegram-title translate" data-translation-key="telegramTitle">Ваш особистий кабінет у Telegram</h3>
+                    <ul class="telegram-list">
+                        <li class="telegram-item"><img src="./svg/checkmark.svg" alt="Галочка" width="20"><strong class="telegram-text translate" data-translation-key="consultation">Консультація</strong></li>
+                        <li class="telegram-item"><img src="./svg/checkmark.svg" alt="Галочка" width="20"><strong class="telegram-text translate" data-translation-key="accessToTickets">Доступ до квитків</strong></li>
+                        <li class="telegram-item"><img src="./svg/checkmark.svg" alt="Галочка" width="20"><strong class="telegram-text translate" data-translation-key="agencySupport">Агенська підтримка</strong></li>
+                    </ul>
+                    <a href="https://web.telegram.org/k/" class="telegram-link translate" data-translation-key="joinLink">Приєднатись</a>
+                </div>
+            </div>
+                 <img src="./img/phone.png" width="500" alt="logo" class="telegram-img"/>
+            <div class="soial-link-group">
+            <ul class="footer-list">
+                
+                <li class="footer-item"><a href="https://www.instagram.com/" class="footer-item-link"><img class="footer-item-icon" src="./svg/instagram.svg" alt="Інстаграм" width="25"></a></li>
+                <li class="footer-item"><a href="https://web.telegram.org/k/" class="footer-item-link"><img class="footer-item-icon" src="./svg/telegram.svg" alt="Телеграм" width="25"></a></li>
+                <li class="footer-item"><a href="https://www.viber.com/ru/" class="footer-item-link"><img class="footer-item-icon" src="./svg/viber.svg" alt="Вайбер" width="25"></a></li>
+                <li class="footer-item"><a href="https://www.facebook.com/" class="footer-item-link"><img class="footer-item-icon" src="./svg/facebook.svg" alt="Фейсбук" width="25"></a></li>
+            </ul>
+        </div>
+       
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+  <script src="./js/language.js"></script>
+  <script defer src="js/mobile-menu.js"></script>
+  <script src="js/spiner.js"></script>
+    
+</body>
+</html>
