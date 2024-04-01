@@ -39,7 +39,7 @@ sashaComment:" Перша моя подорож потягом після дов
             telegramTitle: "Ваш особистий кабінет у Telegram",
             svitlanaKryuk:"Яна Каращук",
 svitlanaComment:"Сайт простий у використанні, і вже через кілька хвилин у мене були квитки у руках. Чудовий сервіс! Всім Рекомендую!",
-mukolaKotsiubailo:"Микола Кононов",
+mukolaKotsiubailo:"Микола Лут",
 mukolaComment:" Шукаючи кращі ціни на авіаквитки, натрапив на цей сайт і не пожалкував! Простий і швидкий процес бронювання, а квитки прийшли майже миттєво.",
 olegMainyi:"Олег Бурштика",
 olegComment:"Забронював авіаквитки на цьому сайті і залишився дуже задоволений. Швидко, зручно і безпечно. Тепер з нетерпінням чекаю своєї подорожі!",
@@ -47,14 +47,16 @@ olegComment:"Забронював авіаквитки на цьому сайт�
         accessToTickets: "Доступ до квитків",
         agencySupport: "Агенська підтримка",
         joinLink: "Приєднатись",
-        // selectLanguage: "Оберіть мову:",
-    //     ukrainian: "Українська",
-    //    english: "Англійська",
-    //   russian: "Російська",
       searchTitle: "Пошук дешевих квитків",
       searchTitlePlain:"Пошук авіаквитків",
       searchTitleTrain:"Пошук залізничних квитків",
       searchTitleBus:"Пошук автобусних квитків",
+      SearhBus:"Пошук автобусних квитків",
+      AboutUs:"Наші переваги",
+      popularsQuestions:"Популярні запитання",
+      Comments:"Комментарії",
+      SearhTrain:"Пошук залізничних квитків",
+      SearhPlane:"Пошук авіаквитків"
     },
     eng: {
         insuranceMobile:"Insurance",
@@ -97,7 +99,7 @@ olegComment:"Забронював авіаквитки на цьому сайт�
         consultation: "Consultation",
         svitlanaKryuk:"Yana Karaschuk",
 svitlanaComment:"The site is easy to use and within minutes I had my tickets in hand. Great service! I recommend it to everyone!",
-mukolaKotsiubailo:"Mykola Kononov",
+mukolaKotsiubailo:"Mykola Lut",
 mukolaComment:" I came across this site while looking for the best flight prices and I'm not sorry! Easy and fast booking process, and the tickets arrived almost instantly.",
 olegMainyi:"Oleg Burshtika",
 olegComment:"Booked flights on this site and was very satisfied. Fast, convenient and safe. Now I'm looking forward to my trip!",
@@ -108,6 +110,12 @@ olegComment:"Booked flights on this site and was very satisfied. Fast, convenien
         searchTitlePlain:"Airline search",
       searchTitle: "Search for cheap tickets",
       searchTitleBus:"Search for bus tickets",
+      SearhBus:"Search bus tickets",
+       AboutUs: "Our benefits",
+       popularsQuestions:"Popular Questions",
+       Comments:"Comments",
+       SearhTrain:"Search train tickets",
+       SearhPlane: "Airline search",
     },
     rus: {
         insuranceMobile:"Insurance",
@@ -150,35 +158,33 @@ sashaComment:" Первое мое путешествие на поезде по
         consultation: "Консультация",
         svitlanaKryuk:"Яна Каращук",
 svitlanaComment:"Сайт прост в использовании, и уже через несколько минут у меня были билеты в руках. Отличный сервис! Всем Рекомендую!",
-mukolaKotsiubailo:"Николай Кононов",
+mukolaKotsiubailo:"Николай Лут",
 mukolaComment:" Ища лучшие цены на авиабилеты, наткнулся на этот сайт и не пожалел! Простой и быстрый процесс бронирования, а билеты пришли почти мгновенно.",
 olegMainyi:"Олег Бурштика",
 olegComment:"Забронировал авиабилеты на этом сайте и остался очень доволен. Быстро, удобно и безопасно. Теперь с нетерпением жду своего путешествия!",
         accessToTickets: "Доступ к билетам",
         agencySupport: "Агентская поддержка",
         joinLink: "Присоединиться",
-        // selectLanguage: "Выберите язык:",
-    //     ukrainian: "Украинский",
-    //    english: "Английский",
-    //   russian: "Русский",
     searchTitleTrain:"Поиск ж/д билетов",
     searchTitlePlain:"Поиск авиабилетов",
     searchTitleBus:"Поиск автобусных билетов",
-      searchTitle: "Поиск дешевых билетов"
+      searchTitle: "Поиск дешевых билетов",
+      SearhBus:"Поиск автобусных билетов",
+      AboutUs:"Наши преимущества",
+      popularsQuestions:"Популярные вопросы",
+      Comments:"Комментарии",
+      SearhTrain:"Поиск ж/д билетов",
+      SearhPlane: "Поиск авиабилетов"
     }
 };
 document.addEventListener("DOMContentLoaded", function() {
-    // Зчитуємо вибрану мову з localStorage, якщо вона там є
     const savedLanguage = localStorage.getItem("selectedLanguage");
     
-    // Встановлюємо вибрану мову на основі даних localStorage або за замовчуванням
     const selectedLanguage = savedLanguage || "ukr";
     document.getElementById("language").value = selectedLanguage;
     
-    // Викликаємо зміну мови
     changeLanguage();
 
-    // Зберігаємо обрану мову при зміні
     document.getElementById("language").addEventListener("change", function() {
         const newLanguage = document.getElementById("language").value;
         localStorage.setItem("selectedLanguage", newLanguage);
