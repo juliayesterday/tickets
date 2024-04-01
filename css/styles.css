@@ -504,7 +504,6 @@ padding-left: 15px;
     justify-content: space-between;
     margin-top: 32px; 
 }
-
 .about-item {
     display: flex;
     flex-direction: column;
@@ -513,7 +512,6 @@ padding-left: 15px;
     gap: 10px; 
     text-align: center; 
 }
-
 .about-item-text {
     color: #78716C;
     font-weight: 300;
@@ -521,7 +519,6 @@ padding-left: 15px;
     line-height: 1.14;
     text-align: center; 
 }
-
 @media screen and (max-width: 767px) {
     .about-list {
         flex-direction: column; 
